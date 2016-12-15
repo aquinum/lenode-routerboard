@@ -1,0 +1,22 @@
+{
+  "name": "lenode-routerboard",
+  "version": "0.0.0",
+  "description": "",
+  "dependencies": {
+    "chart.js": "^2.4.0",
+    "jquery": "^3.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dehy/lenode-routerboard"
+  },
+  "author": "Arnaud de Mouhy <arnaud.demouhy@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dehy/lenode-routerboard/issues"
+  }
+}

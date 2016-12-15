@@ -1,0 +1,13 @@
+{
+    "name": "dehy/lenode-routerboard",
+    "version": "1.0.0",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/BenMenking/routeros-api"
+        }
+    ],
+    "require": {
+        "BenMenking/routeros-api": "dev-master"
+    }
+}

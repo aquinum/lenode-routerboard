@@ -1,0 +1,10 @@
+app:
+    build: .
+    ports:
+        - 80
+    volumes:
+        - ./src/:/var/www/html/
+    environment:
+        - ROUTEROS_IP=10.10.10.1
+        - ROUTEROS_USERNAME=readonly
+        - ROUTEROS_PASSWORD=changeme

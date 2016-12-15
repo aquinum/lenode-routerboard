@@ -1,0 +1,78 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "bfd1f64f7ae1a932f95b29b1cd0088a4",
+    "content-hash": "417dbc5a54bbb16727a1a51ae33a54f4",
+    "packages": [
+        {
+            "name": "BenMenking/routeros-api",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/BenMenking/routeros-api.git",
+                "reference": "a9ae96c711855b8f1677afa982898e536ff285e3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/BenMenking/routeros-api/zipball/a9ae96c711855b8f1677afa982898e536ff285e3",
+                "reference": "a9ae96c711855b8f1677afa982898e536ff285e3",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "routeros_api.class.php"
+                ]
+            },
+            "authors": [
+                {
+                    "name": "Denis Basta",
+                    "email": "Denis.Basta@gmail.com"
+                },
+                {
+                    "name": "Nick Barnes"
+                },
+                {
+                    "name": "Ben Menking",
+                    "email": "ben@infotechsc.com"
+                },
+                {
+                    "name": "Jeremy Jefferson",
+                    "url": "http://jeremyj.com"
+                },
+                {
+                    "name": "Cristian Deluxe",
+                    "url": "djcristiandeluxe@gmail.com"
+                },
+                {
+                    "name": "Mikhail Moskalev",
+                    "url": "mmv.rus@gmail.com"
+                }
+            ],
+            "description": "Client API for RouterOS/Mikrotik",
+            "keywords": [
+                "mikrotik",
+                "routeros"
+            ],
+            "support": {
+                "issues": "https://github.com/BenMenking/routeros-api/issues",
+                "wiki": "http://wiki.mikrotik.com/wiki/API_PHP_class",
+                "source": "https://github.com/BenMenking/routeros-api"
+            },
+            "time": "2016-10-18 03:15:20"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "benmenking/routeros-api": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
