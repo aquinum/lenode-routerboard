@@ -2,7 +2,7 @@ var maxBps = 20 * 1024 * 1024;
 var refreshTime = 1;
 var averageCount = 10;
 
-var warningStartRatio = 0.5;
+var warningStartRatio = 0.75;
 var fontColor = "#FFF";
 
 var chartData = {};
@@ -19,23 +19,32 @@ function drawChart() {
     trafficChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
+            labels: [
+                "Used bandwidth",
+                "Unused bandwidth"
+            ],
             datasets: [
                 {
                     data: [rtBps, leftBps],
+                    borderWidth: [0, 0],
                     backgroundColor: [
                         "#66abcc",
-                        "#999999"
+                        "#666666"
                     ]
                 }
             ]
         },
         options: {
+            cutoutPercentage: 90,
             responsive: true,
             legend: {
-                display: false
+                display: true
             },
             title: {
-                display: false,
+                display: true,
+                text: 'Download speed @ Le Node',
+                fontSize: 30,
+                fontColor: '#FFF'
             },
             animation: {
                 // animateRotate: false
@@ -56,7 +65,7 @@ var GetChartData = function () {
             var rtBps = Math.min(maxBps, d.avgBps[0]);
 
             avgBpsArray.push(rtBps);
-            avgBpsArray = avgBpsArray.slice(-averageCount); // Last 60 measures
+            avgBpsArray = avgBpsArray.slice(-averageCount); // Last `averageCount` measures
 
             avgBps = avgBpsArray.reduce(function(a, c) {
                 return a+c;
@@ -115,14 +124,14 @@ Chart.pluginService.register({
         ctx = chart.chart.ctx;
 
     ctx.restore();
-    var fontSize = (height / 200).toFixed(2);
+    var fontSize = (height / 150).toFixed(2);
     ctx.font = fontSize + "em sans-serif";
     ctx.textBaseline = "middle";
     ctx.fillStyle = fontColor;
 
     var text = chartLabel,
         textX = Math.round((width - ctx.measureText(text).width) / 2),
-        textY = height / 2;
+        textY = height / 2 + chart.titleBlock.height;
 
     ctx.fillText(text, textX, textY);
     ctx.save();
