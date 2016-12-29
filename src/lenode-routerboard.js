@@ -5,6 +5,9 @@ var averageCount = 10;
 var warningStartRatio = 0.75;
 var fontColor = "#FFF";
 
+var nodeBlue = "66ABCC";
+var aquinumRed = "E65A50";
+
 var chartData = {};
 var chartLabel = "";
 var avgBpsArray = [];
@@ -20,8 +23,8 @@ function drawChart() {
         type: 'doughnut',
         data: {
             labels: [
-                "Used bandwidth",
-                "Unused bandwidth"
+                "Utilisé",
+                "Inutilisé"
             ],
             datasets: [
                 {
@@ -42,7 +45,7 @@ function drawChart() {
             },
             title: {
                 display: true,
-                text: 'Download speed @ Le Node',
+                text: 'Vitesse téléchargement',
                 fontSize: 30,
                 fontColor: '#FFF'
             },
@@ -72,15 +75,22 @@ var GetChartData = function () {
             }) / avgBpsArray.length;
 
             // console.log(rtBps + ", " + avgBps);
+            color = nodeBlue;
             warningStartBps = warningStartRatio * maxBps;
             if (avgBps > warningStartBps) {
                 ratio = (avgBps - warningStartBps) / (maxBps - warningStartBps);
-                color = "#" + getColorForRatio(ratio);
-                trafficChart.data.datasets[0].backgroundColor[0] = color;
+                color = getColorForRatio(ratio);
             }
+            trafficChart.data.datasets[0].backgroundColor[0] = "#"+color;
 
             var leftBps = maxBps - avgBps;
-            chartLabel = "↓ " + (Math.round(avgBps / 1024 / 1024 * 10) / 10) + " Mb/s";
+            var currentSpeed = (Math.round(avgBps / 1024 / 1024 * 10) / 10);
+            var currentUnit = "Mb/s";
+            if (currentSpeed < 1.5) {
+                currentSpeed = currentSpeed * 1024;
+                currentUnit = "kb/s";
+            }
+            chartLabel = "↓ " + currentSpeed + " " + currentUnit;
             trafficChart.data.datasets[0].data = [avgBps, leftBps];
             trafficChart.update();
 
@@ -95,9 +105,6 @@ $(document).ready(function() {
 });
 
 function getColorForRatio(ratio) {
-    var nodeBlue = "66ABCC";
-    var aquinumRed = "E65A50";
-
     var color1 = aquinumRed;
     var color2 = nodeBlue;
 
