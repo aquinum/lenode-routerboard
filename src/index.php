@@ -2,6 +2,8 @@
 
 session_start();
 
+header("Access-Control-Allow-Origin: *");
+
 require('vendor/autoload.php');
 
 const INTERFACE_INTERNET = 0;
